@@ -12,12 +12,11 @@ class Situation:
         self.recover = recover
         self.dead = dead
 
-
     def get_time(self):
         return str(datetime.datetime.now().strftime('%H:%M'))
 
     def show(self):
-        return '<b>Статистика по России на {} :</b>\n\nЗаразилось: <b>{}</b>\nВыздоровело: <b>{}</b>\nУмерло: <b>{}</b>'\
+        return '<b>Статистика по России на {} :</b>\n\nЗаразилось: <b>{}</b>\nВыздоровело: <b>{}</b>\nУмерло: <b>{}</b>' \
             .format(self.get_time(), self.cases, self.recover, self.dead)
 
 
@@ -30,4 +29,5 @@ def parse_covid():
         dead = tree.xpath(get_scraper().dead)[0]
         return Situation(cases, recover, dead)
     except IndexError:
-        print(tree.xpath(get_scraper().cases)[0])
+        info = 'нет информации'
+        return Situation(info, info, info)

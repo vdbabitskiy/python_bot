@@ -9,21 +9,33 @@ def parse_config():
 
 
 def get_auth():
-    return Auth(parse_config()['auth']['token'])
+    try:
+        return Auth(parse_config()['auth']['token'])
+    except yaml.YAMLError as exc:
+        print(exc)
 
 
 def get_small_talk_token():
-    return parse_config()['auth']['small_talk']
+    try:
+        return parse_config()['auth']['small_talk']
+    except yaml.YAMLError as exc:
+        print(exc)
 
 
 def get_scraper():
-    data = parse_config()
-    src = data['scraper']['source']
-    recovery = data['scraper']['stats']['recovered']
-    dead = data['scraper']['stats']['dead']
-    cases = data['scraper']['stats']['cases']
-    return Scraper(source=src, recovery=recovery, dead=dead, cases=cases)
+    try:
+        data = parse_config()
+        src = data['scraper']['source']
+        recovery = data['scraper']['stats']['recovered']
+        dead = data['scraper']['stats']['dead']
+        cases = data['scraper']['stats']['cases']
+        return Scraper(source=src, recovery=recovery, dead=dead, cases=cases)
+    except yaml.YAMLError as exc:
+        print(exc)
 
 
 def get_stickers(name):
-    return parse_config()['stickers'][name]
+    try:
+        return parse_config()['stickers'][name]
+    except yaml.YAMLError as exc:
+        print(exc)

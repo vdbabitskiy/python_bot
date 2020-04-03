@@ -20,7 +20,7 @@ def send_welcome(message):
 
 
 @bot.message_handler(content_types=['text'])
-def get_stick(message):
+def handle_message(message):
     if 'люблю' in message.text.lower():
         bot.send_sticker(message.chat.id, get_stickers('love'))
     elif message.text == 'Информация по COVID-19':

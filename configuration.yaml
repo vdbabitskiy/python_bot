@@ -5,7 +5,7 @@ scraper:
   source: 'http://xn--80aesfpebagmfblc0a.xn--p1ai/'
   stats:
     dead: '//*[contains(text(),"умерло")]/parent::div/div/span/text()'
-    recovered: '//*[contains(text(),"выздоровело")]/parent::div/div/span/text()'
+    recovered: '//*[contains(text(),"выздоровел")]/parent::div/div/span/text()'
     cases: '//*[contains(text(),"Случаев заболевания")]/parent::div/div/span/text()'
 stickers:
   love: 'CAACAgIAAxkBAAM5XoWTzEMMJfU5e6FXKQAB8wQJ6i2tAAL5IgAC6VUFGHVJHwXal8q0GAQ'

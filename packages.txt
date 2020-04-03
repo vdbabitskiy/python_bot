@@ -1,0 +1,11 @@
+apiai>=1.2.3
+beautifulsoup4>=4.8.2
+bs4>=0.0.1
+lxml>=4.5.0
+pyTelegramBotAPI>=3.6.7
+PyYAML>=5.3.1
+requests>=2.7.0
+telebot>=0.0.3
+urllib3>=1.25.8
+
+
