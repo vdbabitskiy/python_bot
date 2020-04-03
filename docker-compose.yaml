@@ -3,7 +3,5 @@ version: '3.7'
 services:
   bot:
     container_name: covid_bot
-    image: drugisusa/covid_bot:1.0
+    image: drugisusa/covid_bot:1.4
     restart: always
-
-
