@@ -21,12 +21,12 @@ def send_welcome(message):
 
 @bot.message_handler(content_types=['text'])
 def process_message(message):
-    # try:
+    try:
         types.ReplyKeyboardRemove(selective=False)
         bot.send_message(message.chat.id, handle_message(message.text), parse_mode='HTML')
-    # except Exception as e:
-    #     print('Something wrong: {}'.format(e))
-    #     bot.send_sticker(message.chat.id, get_stickers('something_wrong'))
+    except Exception as e:
+        print('Something wrong: {}'.format(e))
+        bot.send_sticker(message.chat.id, get_stickers('something_wrong'))
 
 
 if __name__ == '__main__':
