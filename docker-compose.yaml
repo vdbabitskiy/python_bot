@@ -1,7 +1,18 @@
 version: '3.7'
 
 services:
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+      - MONGO_INITDB_DATABASE=covid_bot_database
+    volumes:
+    - ./Database/init.js:/docker-entrypoint-initdb.d/init.js
   bot:
     container_name: covid_bot
-    image: drugisusa/covid_bot:1.4
+    image: drugisusa/covid_bot:latest
     restart: always
+    depends_on:
+      - mongodb

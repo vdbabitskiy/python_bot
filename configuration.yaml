@@ -1,11 +1,19 @@
 auth:
   token: '881198642:AAGfKZnpZmFV0BQBt-QLmWDN-FpKOxtbHr8'
   small_talk: '17d782d7c27e48948121e5dc42744dc1'
+database:
+  connection_string: 'mongodb://admin:admin@mongodb:27018/covid_bot_database?authSource=admin'
+api:
+  source: 'https://corona-virus-stats.herokuapp.com/api/v1/cases/general-stats'
 scraper:
   source: 'http://xn--80aesfpebagmfblc0a.xn--p1ai/'
   stats:
     dead: '//*[contains(text(),"умерло")]/parent::div/div/span/text()'
     recovered: '//*[contains(text(),"выздоровел")]/parent::div/div/span/text()'
-    cases: '//*[contains(text(),"Случаев заболевания")]/parent::div/div/span/text()'
+    cases: '//*[contains(text(),"заболевания")]/parent::div/div/span/text()'
 stickers:
   love: 'CAACAgIAAxkBAAM5XoWTzEMMJfU5e6FXKQAB8wQJ6i2tAAL5IgAC6VUFGHVJHwXal8q0GAQ'
+  something_wrong: 'CAACAgEAAxkBAAI-C16IH-hK6DFHq0aTpTAztmxEfSKmAAKDAAOj_5UM2ImSAAGm0wRaGAQ'
+button_name:
+  russia: 'COVID-19 Россия'
+  world: 'COVID-19 Мир'
