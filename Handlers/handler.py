@@ -30,6 +30,3 @@ def to_datetime(string_time) -> datetime:
         return datetime.datetime.strptime(string_time, '%Y-%m-%d %H:%M:%S')
     else:
         return string_time
-
-
-print(handle_message('COVID-19 Мир'))

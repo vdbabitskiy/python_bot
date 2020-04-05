@@ -2,7 +2,7 @@ auth:
   token: '881198642:AAGfKZnpZmFV0BQBt-QLmWDN-FpKOxtbHr8'
   small_talk: '17d782d7c27e48948121e5dc42744dc1'
 database:
-  connection_string: 'mongodb://admin:admin@mongodb:27018/covid_bot_database?authSource=admin'
+  connection_string: 'mongodb://admin:admin@mongodb:27017/covid_bot_database?authSource=admin'
 api:
   source: 'https://corona-virus-stats.herokuapp.com/api/v1/cases/general-stats'
 scraper:
