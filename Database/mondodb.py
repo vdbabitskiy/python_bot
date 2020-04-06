@@ -1,7 +1,6 @@
 import json
 from json import JSONDecodeError
 
-import pymongo
 from pymongo import MongoClient
 from pymongo.cursor import Cursor
 from Parser.parser import *

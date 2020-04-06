@@ -17,8 +17,8 @@ def get_small_talk_response(text):
 
 
 def get_from_api() -> Situation:
-    resp = requests.get(get_api()).json()
-    return json.dumps(resp)['data']
+    resp = requests.get(get_api()).content
+    return json.loads(resp)['data']
 
 
 def parse_from_site():

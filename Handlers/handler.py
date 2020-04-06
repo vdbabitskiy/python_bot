@@ -14,13 +14,17 @@ def handle_message(message):
 
 
 def get_actual_data(world=False):
-    data = return_from_db(world)
-    dif = to_datetime(get_timestamp()) - to_datetime(data['timestamp'])
-    if abs(dif.total_seconds()) > 3600:
-        return map_data(convert_to_json(data['data']), world)
+    if return_from_db(world) is not None:
+        data = return_from_db(world)
+        dif = to_datetime(get_timestamp()) - to_datetime(data['timestamp'])
+        if abs(dif.total_seconds()) > 3600:
+            return map_data(convert_to_json(data['data']), world)
+        else:
+            data = get_info(world)
+            add_to_db(str(data), world)
+            return map_data(data, world)
     else:
         data = get_info(world)
-        print(data)
         add_to_db(str(data), world)
         return map_data(data, world)
 
