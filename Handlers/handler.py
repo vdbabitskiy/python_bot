@@ -17,7 +17,7 @@ def get_actual_data(world=False):
     if return_from_db(world) is not None:
         data = return_from_db(world)
         dif = to_datetime(get_timestamp()) - to_datetime(data['timestamp'])
-        if abs(dif.total_seconds()) > 3600:
+        if abs(dif.total_seconds()) < 3600:
             return map_data(convert_to_json(data['data']), world)
         else:
             data = get_info(world)
