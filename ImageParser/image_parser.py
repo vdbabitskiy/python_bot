@@ -13,7 +13,7 @@ def get_path_to_answer():
 
 
 def create_image_answer(time, cases, recovered, dead, rate):
-    image = Image.open(f'{get_path_to_resource()}image_temlate.jpg')
+    image = Image.open(f'{get_path_to_resource()}template_image.png')
     font_head = ImageFont.truetype(f'{get_path_to_resource()}/Fonts/amatic.ttf', 48)
     font_regular = ImageFont.truetype(f'{get_path_to_resource()}/Fonts/amatic.ttf', 45)
     d = ImageDraw.Draw(image)
