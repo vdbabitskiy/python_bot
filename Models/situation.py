@@ -8,13 +8,16 @@ class Situation:
         self.recover = recover
         self.dead = dead
         self.last_update = None
-        self.death_rate = rate
+        self.death_rate: str = rate
 
     def get_time(self):
         return str(datetime.datetime.now().strftime('%H:%M'))
 
     def calculate_rate(self):
-        return round(float(self.death_rate), 2) or round(((int(self.dead.replace(' ', '')) / int(self.cases.replace(' ', ''))) * 100), 2)
+        if self.death_rate is None:
+           return round(((int(self.dead.replace(' ', '')) / int(self.cases.replace(' ', ''))) * 100), 2)
+        else:
+           return round(float(self.death_rate))
 
     def show(self):
         return '<b>Статистика на {} :</b>\n\nЗаразилось: <b>{}</b>\nВыздоровело: <b>{}</b>\nУмерло: <b>{}</b>\n' \

@@ -14,5 +14,5 @@ def map_data(data, world=False):
         tree = html.fromstring(data)
         cases = tree.xpath(get_scraper().cases)[0]
         recovered = tree.xpath(get_scraper().recovery)[0]
-        dead = tree.xpath(get_scraper().dead)[0]
+        dead = str(tree.xpath(get_scraper().dead)[0])
         return Situation(cases, recovered, dead)
