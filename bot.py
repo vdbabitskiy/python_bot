@@ -23,7 +23,7 @@ def send_welcome(message):
 def process_message(message):
     try:
         types.ReplyKeyboardRemove(selective=False)
-        bot.send_message(message.chat.id, handle_message(message.text), parse_mode='HTML')
+        handle_message(bot, message)
     except Exception as e:
         print('Something wrong: {}'.format(e))
         bot.send_sticker(message.chat.id, get_stickers('something_wrong'))

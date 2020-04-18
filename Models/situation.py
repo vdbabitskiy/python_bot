@@ -1,5 +1,7 @@
 import datetime
 
+from ImageParser.image_parser import create_image_answer, get_path_to_answer
+
 
 class Situation:
 
@@ -25,3 +27,9 @@ class Situation:
                '======================\n> Заразилось: <b>{}</b>\n> Выздоровело: <b>{}</b>\n> Умерло: <b>{}</b>\n' \
                '> Общая смертность: <b>{}%</b>'\
             .format(self.get_time(), self.cases, self.recover, self.dead, self.calculate_rate())
+
+    def get_image(self):
+        create_image_answer(self.get_time(), self.cases, self.recover, self.dead, self.calculate_rate())
+        return get_path_to_answer()
+
+

@@ -1,18 +1,22 @@
+from telebot import TeleBot
+
 from Database.mondodb import *
 from Mapper.mapping import *
 from Api.api_client import *
 from Parser.parser import *
 
 
-def handle_message(message):
-    if message == get_button('russia'):
-        return get_actual_data().show()
-    elif message == get_button('world'):
-        return get_actual_data(world=True).show()
-    elif 'слава' in message:
-        return 'Слава мой создатель'
+def handle_message(bot: TeleBot, message):
+    if message.text == get_button('russia'):
+        with open(get_actual_data().get_image(), 'rb') as f:
+            return bot.send_photo(message.chat.id, photo=f).photo
+    elif message.text == get_button('world'):
+        with open(get_actual_data(True).get_image(), 'rb') as f:
+            return bot.send_photo(message.chat.id, photo=f).photo
+    elif 'слава' in message.text:
+        return bot.send_message(message.chat.id, 'Слава мой создатель')
     else:
-        return get_small_talk_response(message)
+        bot.send_message(message.chat.id, get_small_talk_response(message))
 
 
 def get_actual_data(world=False):
