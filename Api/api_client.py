@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
+from retry import retry
+
 from Parser.parser import *
 from Models.situation import *
 import apiai
 import json
 import requests
-from lxml import html
 
 
 def get_small_talk_response(text):
@@ -28,5 +29,9 @@ def parse_from_site():
         print(e)
 
 
+@retry(exceptions=Exception, tries=30, delay=1, logger=None)
 def get_info(world=False):
-    return get_from_api() if world else parse_from_site()
+    try:
+        return get_from_api() if world else parse_from_site()
+    except Exception as e:
+        print("Catch exeption:", e)

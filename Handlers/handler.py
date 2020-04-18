@@ -9,6 +9,8 @@ def handle_message(message):
         return get_actual_data().show()
     elif message == get_button('world'):
         return get_actual_data(world=True).show()
+    elif 'слава' in message:
+        return 'Слава мой создатель'
     else:
         return get_small_talk_response(message)
 

@@ -1,0 +1,10 @@
+/venv/
+/.idea/
+.idea/dictionaries/
+.idea/misc.xml
+Api/__pycache__/
+Database/__pycache__/
+Handlers/__pycache__/
+Mapper/__pycache__/
+Models/__pycache__/
+Parser/__pycache__/
