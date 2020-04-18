@@ -14,7 +14,7 @@ class Situation:
         return str(datetime.datetime.now().strftime('%H:%M'))
 
     def calculate_rate(self):
-        return self.death_rate or round(((int(self.dead.replace(' ', '')) / int(self.cases.replace(' ', ''))) * 100), 2)
+        return round(float(self.death_rate), 2) or round(((int(self.dead.replace(' ', '')) / int(self.cases.replace(' ', ''))) * 100), 2)
 
     def show(self):
         return '<b>Статистика на {} :</b>\n\nЗаразилось: <b>{}</b>\nВыздоровело: <b>{}</b>\nУмерло: <b>{}</b>\n' \
