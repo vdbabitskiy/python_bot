@@ -15,11 +15,13 @@ class Situation:
 
     def calculate_rate(self):
         if self.death_rate is None:
-           return round(((int(self.dead.replace(' ', '')) / int(self.cases.replace(' ', ''))) * 100), 2)
+            return round(((int(self.dead.replace(' ', '')) / int(self.cases.replace(' ', ''))) * 100), 2)
         else:
-           return round(float(self.death_rate))
+            return round(float(self.death_rate))
 
     def show(self):
-        return '<b>Статистика на {} :</b>\n\nЗаразилось: <b>{}</b>\nВыздоровело: <b>{}</b>\nУмерло: <b>{}</b>\n' \
-               'Общая смертность: <b>{}%</b>' \
+        return '======================\n' \
+               '!!<b>Статистика на {} UTC</b>!!\n' \
+               '======================\n> Заразилось: <b>{}</b>\n> Выздоровело: <b>{}</b>\n> Умерло: <b>{}</b>\n' \
+               '> Общая смертность: <b>{}%</b>'\
             .format(self.get_time(), self.cases, self.recover, self.dead, self.calculate_rate())

@@ -9,7 +9,7 @@ bot = telebot.TeleBot(str(get_auth().token))
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=5)
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=20)
     info_btn_rus = types.KeyboardButton(get_button('russia'))
     info_btn_world = types.KeyboardButton(get_button('world'))
     markup.add(info_btn_rus, info_btn_world)
