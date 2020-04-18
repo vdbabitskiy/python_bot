@@ -13,10 +13,10 @@ def handle_message(bot: TeleBot, message):
     elif message.text == get_button('world'):
         with open(get_actual_data(True).get_image(), 'rb') as f:
             return bot.send_photo(message.chat.id, photo=f).photo
-    elif 'слава' in message.text:
+    elif 'слава' in str(message.text).lower():
         return bot.send_message(message.chat.id, 'Слава мой создатель')
     else:
-        bot.send_message(message.chat.id, get_small_talk_response(message))
+        return bot.send_message(message.chat.id, get_small_talk_response(message.text))
 
 
 def get_actual_data(world=False):
