@@ -6,17 +6,21 @@ from Api.api_client import *
 from Parser.parser import *
 
 
+@retry(exceptions=Exception, tries=10, delay=1)
 def handle_message(bot: TeleBot, message):
-    if message.text == get_button('russia'):
-        with open(get_actual_data().get_image(), 'rb') as f:
-            return bot.send_photo(message.chat.id, photo=f).photo
-    elif message.text == get_button('world'):
-        with open(get_actual_data(True).get_image(), 'rb') as f:
-            return bot.send_photo(message.chat.id, photo=f).photo
-    elif 'слава' in str(message.text).lower():
-        return bot.send_message(message.chat.id, 'Слава мой создатель')
-    else:
-        return bot.send_message(message.chat.id, get_small_talk_response(message.text))
+    try:
+        if message.text == get_button('russia'):
+            with open(get_actual_data().get_image(), 'rb') as f:
+                return bot.send_photo(message.chat.id, photo=f).photo
+        elif message.text == get_button('world'):
+            with open(get_actual_data(True).get_image(), 'rb') as f:
+                return bot.send_photo(message.chat.id, photo=f).photo
+        elif 'слава' in str(message.text).lower():
+            return bot.send_message(message.chat.id, 'Слава мой создатель')
+        else:
+            return bot.send_message(message.chat.id, get_small_talk_response(message.text))
+    except Exception:
+        raise
 
 
 def get_actual_data(world=False):
