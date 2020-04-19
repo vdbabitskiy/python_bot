@@ -7,7 +7,7 @@ from Api.api_client import *
 bot = telebot.TeleBot(str(get_auth().token))
 
 
-@bot.message_handler(commands=['/start'])
+@bot.message_handler(commands=['start'])
 def send_welcome(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=20)
     info_btn_rus = types.KeyboardButton(get_button('russia'))
