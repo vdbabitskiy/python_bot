@@ -4,7 +4,7 @@ from Models.auth import Auth
 
 
 def parse_config():
-    with open('configuration.yaml') as file:
+    with open('../configuration.yaml') as file:
         return yaml.load(file, Loader=yaml.FullLoader)
 
 

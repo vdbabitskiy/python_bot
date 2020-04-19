@@ -9,7 +9,7 @@ api:
 scraper:
   source: 'http://xn--80aesfpebagmfblc0a.xn--p1ai/'
   stats:
-    dead: '//*[contains(text(),"умерло")]/parent::div/div/span/text()'
+    dead: '//*[contains(text(),"умер")]/parent::div/div/span/text()'
     recovered: '//*[contains(text(),"выздоровел")]/parent::div/div/span/text()'
     cases: '//*[contains(text(),"заболевания")]/parent::div/div/span/text()'
 stickers:
