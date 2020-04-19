@@ -22,6 +22,12 @@ def get_small_talk_token():
         print(exc)
 
 
+def get_joke_api():
+    try:
+        return parse_config()['api']['joke_api']
+    except yaml.YAMLError as exc:
+        print(exc)
+
 def get_api():
     try:
         return parse_config()['api']['source']

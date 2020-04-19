@@ -7,12 +7,13 @@ from Api.api_client import *
 bot = telebot.TeleBot(str(get_auth().token))
 
 
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['/start'])
 def send_welcome(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=20)
     info_btn_rus = types.KeyboardButton(get_button('russia'))
     info_btn_world = types.KeyboardButton(get_button('world'))
-    markup.add(info_btn_rus, info_btn_world)
+    joke_btn = types.KeyboardButton(get_button('joke'))
+    markup.add(info_btn_rus, info_btn_world, joke_btn)
 
     bot.send_message(message.chat.id, "Привет "
                      + message.from_user.first_name

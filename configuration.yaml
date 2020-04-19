@@ -5,6 +5,7 @@ database:
   connection_string: 'mongodb://admin:admin@mongodb:27017/covid_bot_database?authSource=admin'
 api:
   source: 'https://corona-virus-stats.herokuapp.com/api/v1/cases/general-stats'
+  joke_api: 'https://nekdo.ru/random/'
 scraper:
   source: 'http://xn--80aesfpebagmfblc0a.xn--p1ai/'
   stats:
@@ -17,3 +18,4 @@ stickers:
 button_name:
   russia: 'COVID-19 Россия'
   world: 'COVID-19 Мир'
+  joke: 'Несмешная шутка'

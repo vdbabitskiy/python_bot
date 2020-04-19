@@ -15,8 +15,10 @@ def handle_message(bot: TeleBot, message):
         elif message.text == get_button('world'):
             with open(get_actual_data(True).get_image(), 'rb') as f:
                 return bot.send_photo(message.chat.id, photo=f).photo
+        elif message.text == get_button('joke'):
+            return bot.send_message(message.chat.id, get_joke())
         elif 'слава' in str(message.text).lower():
-            return bot.send_message(message.chat.id, 'Слава мой создатель')
+            return bot.send_message(message.chat.id, 'Слава мой создатель,но вообще мог бы и с пользой время потратить')
         else:
             return bot.send_message(message.chat.id, get_small_talk_response(message.text))
     except Exception:

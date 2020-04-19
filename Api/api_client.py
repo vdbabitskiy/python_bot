@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from retry import retry
+from lxml import html
+import lxml.etree as etree
 
 from Parser.parser import *
 from Models.situation import *
@@ -27,6 +29,13 @@ def parse_from_site():
         return requests.get(get_scraper().source).text
     except Exception as e:
         print(e)
+
+
+def get_joke() -> str:
+    resp = requests.get(get_joke_api()).text
+    tree = html.fromstring(resp)
+    node = tree.xpath('//body//div[3]/div[2]')[0]
+    return node.text + ''.join(etree.tostring(e) for e in node)
 
 
 @retry(exceptions=Exception, tries=30, delay=1, logger=None)
