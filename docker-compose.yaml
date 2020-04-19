@@ -12,7 +12,7 @@ services:
     - ./Database/init.js:/docker-entrypoint-initdb.d/init.js
   bot:
     container_name: covid_bot
-    image: drugisusa/covid_bot:3.2
+    image: drugisusa/covid_bot:3.3
     restart: always
     depends_on:
       - mongodb
