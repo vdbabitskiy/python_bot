@@ -19,6 +19,19 @@ def create_post(data):
     return {'timestamp': get_timestamp(), 'data': data}
 
 
+def create_user_data(data):
+    return {'timestamp': get_timestamp(), 'user_id': data}
+
+
+def add_user_to_db(data):
+    
+    db.covid_users.insert_one(create_user_data(data))
+
+
+def return_user_count():
+    db.covid_users.count()
+
+
 def add_to_db(data, world=False):
     db.world_covid_info.insert_one(create_post(data)) if world else db.russian_covid_info.insert_one(create_post(data))
 
